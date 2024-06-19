@@ -23,7 +23,10 @@ class MovieController extends Controller
         // $movie = Seans::find(1)->movie;
         //  dd($movie);
         $movies = DB::select('select * from movies');
-        return view('movies', ['movies' => $movies]);
+        $seanses = DB::table('seans')->orderBy('start', 'asc')->get();
+        $rooms = DB::select('select * from rooms');
+        // dd($rooms);
+        return view('movies', ['movies' => $movies, 'seanses' => $seanses, 'rooms' => $rooms]);
     }
 
     /**

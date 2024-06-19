@@ -52,6 +52,8 @@ class DatabaseSeeder extends Seeder
             'price' => 100,
             'is_vip' => false,
             'is_blocked' => false,
+            'is_selected'=> false,
+            'is_purchased'=> false,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

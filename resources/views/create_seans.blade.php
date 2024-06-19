@@ -65,7 +65,7 @@
                         <label for="room_id">Rooms id:</label>
                         <input name="room_id" id="room_id" type="number" value="1"><br>
                         <label for="movie_id">movie_id:</label>
-                        <input name="movie_id" id="movie_id" type="number" value="1"><br>
+                        <input name="movie_id" id="movie_id" type="number" value="{{$movie_id}}"><br>
 
                         <label for="start"> Seans start:</label>
                         <input name="start" id="start" type="datetime-local" ><br>

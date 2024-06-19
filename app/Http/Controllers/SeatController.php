@@ -15,6 +15,7 @@ class SeatController extends Controller
      */
     public function index()
     {
+        $seats = DB::table('seats')->get()->all();
         $seats = DB::select('select * from seats');
         // $sessions = Room::find(1)->seans()
         //                  ->where('room_id', 1)
@@ -23,7 +24,7 @@ class SeatController extends Controller
         // ->where('room_id', 1)
         // ->get();
         // $session = Ticket::find(1)->seans;
-        // dd($session);
+         dd($seats);
         return view('seats', ['seats' => $seats]);
     }
 

@@ -15,6 +15,8 @@ class Seat extends Model
         'price',
         'is_vip',
         'is_blocked',
+        'is_selected',
+        'is_purchased',
     ];
     public function ticket(): BelongsTo
     {

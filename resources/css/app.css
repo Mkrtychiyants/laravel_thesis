@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: aqua;
-}
+@layer base {
+    body {
+      @apply bg-orange-300;
+      /* @apply bg-[url('../../public/background_3.jpg')]; */
+    }
+    img {
+      @apply inline-block;
+    }
+  }
+
+  /* .background {
+    src: url('../../public/background_3.jpg');
+} */
+/* img {
+    display: inline-block;
+}  */

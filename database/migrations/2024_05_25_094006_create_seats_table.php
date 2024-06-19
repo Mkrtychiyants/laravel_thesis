@@ -19,8 +19,11 @@ return new class extends Migration
             $table->integer('price')->default(100);
             $table->boolean('is_vip')->default(false)->nullable();
             $table->boolean('is_blocked')->default(false)->nullable();
+            $table->boolean('is_selected')->default(false)->nullable();
+            $table->boolean('is_purchased')->default(false)->nullable();
             $table->timestamps();
         });
+    
     }
 
     /**

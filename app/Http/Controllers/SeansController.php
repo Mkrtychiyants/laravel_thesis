@@ -24,9 +24,10 @@ class SeansController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($movie_id)
     {
-        return view('create_seans');
+    
+        return view('create_seans', ['movie_id' => $movie_id]);
     }
 
     /**
