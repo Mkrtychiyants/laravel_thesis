@@ -13,8 +13,10 @@ class Seans extends Model
     protected $fillable = [
         'room_id',
         'movie_id',
-        'start',    
-        'finish',
+        'session_datetime',
+        'session_date',
+        'start_time',    
+        'finish_time',
     ];
     public function room(): BelongsTo
     {

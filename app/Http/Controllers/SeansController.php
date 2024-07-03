@@ -14,11 +14,19 @@ class SeansController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($date)
     {
-        $seans = DB::select('select * from seans');
+        $rooms = DB::table('rooms')->get();
+        $movies = DB::table('movies')->get();
+        $seanses = DB::table('seans')->orderBy('start', 'asc')->get();
+        
+        
+        $today = Carbon::create($date)->locale('ru_RU')->format('Y-m-d');
+        $seansesToday = DB::table('seans')->orderBy('start', 'asc')->where('session_date', '=', $today)->get();
 
-        return view('seans', ['sessions' => $seans]);
+        //  dd($seansesToday);
+        // dd( Carbon::parse($date)->format('Y-m-d')===Carbon::parse($seanses[3]->start)->format('Y-m-d'));
+        return view('client.layout.welcome', ['movies' => $movies, 'seanses' => $seansesToday , 'rooms' => $rooms,'today'=>Carbon::create($date)->locale('ru_RU')]);
     }
 
     /**

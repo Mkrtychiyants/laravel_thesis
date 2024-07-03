@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('room_id')->default(1);
             $table->integer('movie_id')->default(1);;
-            $table->dateTime('start');
-            $table->dateTime('finish');
+            $table->dateTime('session_datetime');
+            $table->date('session_date');
+            $table->time('start_time');
+            $table->time('finish_time');
             $table->timestamps();
         });
   

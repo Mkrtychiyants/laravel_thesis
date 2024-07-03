@@ -60,7 +60,7 @@
                     
                         <p>Hello!</p>
                         <p>This is create seans:</p>
-                        <form  method="post" action="{{route('createSeans')}}"  class ="createGroupForm" >
+                        <form  method="post" action="{{route('create_seans')}}"  class ="createGroupForm" >
                         @csrf
                         <label for="room_id">Rooms id:</label>
                         <input name="room_id" id="room_id" type="number" value="1"><br>

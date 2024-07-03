@@ -13,6 +13,7 @@ class Movie extends Model
         'title',
         'duration',
         'country',
+        'description',
         'director',
     ];
     public function sessions(): HasMany

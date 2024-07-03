@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->integer('duration')->default(90);
             $table->string('country')->default('USA');
+            $table->string('description')->default('movie descr');
             $table->string('director')->default('Jim Jarmusch');
             $table->timestamps();
         });
