@@ -28,6 +28,7 @@ Route::get('/sean/create/{movie_id}', [AdminController::class, 'createSession'])
 Route::post('/seans/{movie_id}', [AdminController::class, 'storeSession'])->name('create_seans');
 
 Route::get('/sessions/{date}', [SeansController::class, 'index'])->name('client_sessions_list');
+Route::get('/sessions/{seans}/ticket', [SeansController::class, 'show'])->name('client_session_show')->withoutScopedBindings();
 
 
 
@@ -48,7 +49,7 @@ Route::get('/room/create', [RoomController::class, 'create']);
 
 
 
-Route::get('/seans/{seans}', [SeansController::class, 'show']); 
+// Route::get('/seans/{seans}', [SeansController::class, 'show']); 
 
 
 Route::get('/movies/{movie}', [MovieController::class, 'show']);

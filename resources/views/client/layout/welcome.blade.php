@@ -62,12 +62,15 @@
                                                         @foreach ($seanses as $seans)
                                                                         @if ($seans->room_id === $room->id)
                                                                                 @if ($seans->movie_id === $movie->id)
+                                                                                {{-- <a href="{{route('client_session_show', $seans->session_datetime, $seans)}}" class="uppercase font-bold">--}}
+                                                                                <a href="{{route('client_session_show', $seans->id)}}" class="uppercase font-bold">
                                                                                     <div class="gap-1 bg-amber-50 h-10 border border-zinc-900 w-16 text-base text-center pt-[6px] px-1 rounded-sm">
                                                                                         {{\Carbon\Carbon::parse($seans->session_datetime)->format('H:i')}}
                                                                                     </div>
+                                                                                </a>
                                                                                 @endif 
                                                                         @endif   
-                                                            @endforeach
+                                                        @endforeach
                                             </div>
                                     </div>
                                 @endforeach

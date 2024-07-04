@@ -22,7 +22,8 @@ class SeansController extends Controller
         
         
         $today = Carbon::create($date)->locale('ru_RU')->format('Y-m-d');
-        $seansesToday = DB::table('seans')->orderBy('start', 'asc')->where('session_date', '=', $today)->get();
+        // $seansesToday = DB::table('seans')->orderBy('start', 'asc')->where('session_date', '=', $today)->get();
+        $seansesToday = DB::table('seans')->orderBy('start', 'asc')->get();
 
         //  dd($seansesToday);
         // dd( Carbon::parse($date)->format('Y-m-d')===Carbon::parse($seanses[3]->start)->format('Y-m-d'));
@@ -62,8 +63,8 @@ class SeansController extends Controller
      */
     public function show(Seans $seans)
     {
-        // dd($seans);
-        return view('session_profile', ['session' => $seans]);
+        //  dd($seans->room->seats);
+        return view('client.session_profile', ['session' => $seans]);
     }
 
     /**
