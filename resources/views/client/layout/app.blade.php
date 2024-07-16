@@ -13,17 +13,13 @@
         <script src="https://kit.fontawesome.com/78f0e13aaa.js" crossorigin="anonymous"></script>   
     </head>
     <body class="font-sans text-black  text-xs"> 
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50  bg-[url('../../public/background_6.jpg')] bg-contain">
-            <div class=" relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white bg-[url('../../public/background_3.jpg')"  >
-                <div class="container mx-auto w-full max-w-2xl px-28 lg:max-w-7xl">
+        <div class="bg-gray-50 text-black/50  bg-[url('../../public/background_6.jpg')] bg-cover ">
+
+                <div class="container mx-auto w-full  px-28">
                     
-
                     @yield('content')
-
-
                 </div>
-            </div>
-        </div>
-        
+         </div>
+
     </body>
 </html>

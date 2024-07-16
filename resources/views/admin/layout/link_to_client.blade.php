@@ -48,14 +48,20 @@
             </a>
         </section>
         <section class="flex  flex-col relative container mx-auto items-start bg-white">
-            <a  href="{{url("/user/sales_start")}}" class="flex w-full flex-col relative items-start" >
+            <a  href="{{url("/admin")}}" class="flex w-full flex-col relative items-start" >
                 <header class="w-full flex content-center   flex-wrap bg-fuchsia-900  indent-24 z-5  py-8 text-xl  text-white font-bold uppercase tracking-tighter">открыть продажи<div class=" absolute bg-white bg-no-repeat border-purple-400 rounded-full bg-contain  border-4  size-10 top-[27px] left-[40px]" > </div> 
                         <div class="absolute text-black font-black text-2xl top-[30px] left-[-42px] " >5 </div>
                         <div class="absolute bg-purple-400 font-black text-2xl z-20 h-8 w-1 top-[-1px] left-[57px]" ></div>
-                        <div class=" absolute bg-contain bg-no-repeat size-6 z-3  right-[60px] top-[37px] -rotate-90 bg-[url('../../public/switch.png')]" ></div>
+                        <div class=" absolute bg-contain bg-no-repeat size-6 z-3  right-[60px] top-[37px]  bg-[url('../../public/switch.png')]" ></div>
                 </header>
             </a>
-         
+            <div class="px-20  md:container relative md:mx-auto">
+                <div class="flex flex-col text-black items-center px-6 my-4 ">
+                    <p>Всё готово, теперь можно:</p>
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow'))}}"  class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400" >открыть продажу билетов</a>
+                </div>
+                
+            </div>
         </section>
 </main>
 @include('partials.footer')

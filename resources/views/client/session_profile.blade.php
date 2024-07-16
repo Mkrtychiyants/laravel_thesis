@@ -2,37 +2,75 @@
 @section('title','Главная')
 @section('content')
 @include('client.partials.header')
-<main class="flex  flex-col flex-wrap gap-10 container mx-auto   text-md text-black ">
-<div class="md:container md:mx-auto border border-zinc-900 p-5">
-                        <div class="flex justify-center ">
-                            <div class="flex flex-col justify-center ">
-                                <div class="flex justify-center pb-4 tracking-[1.3rem] indent-[5%] text-right text-sm uppercase ">Экран</div>     
-                                    <div class="grid grid-cols-{{ $session->room->rows}} gap-2 justify-items-center col-span-full ">          
-                                        @foreach ($session->room->seats as $seat)
-                                        <a href="{{route('update_seat_type', $seat->id)}}"  @class([
-                                        'flex-initial',
-                                        'size-5',
-                                        'rounded',
-                                        'border',
-                                        'border-zinc-900',
-                                        'bg-neutral-100' => $seat->is_blocked && $seat->is_vip,
-                                        'bg-slate-400'=> !$seat->is_blocked && !$seat->is_vip ,
-                                        'bg-emerald-300' =>  !$seat->is_blocked && $seat->is_vip,
-                                        ])><span >{{$seat->id}}</span></a>
-                                        @endforeach 
-                                    </div> 
-                            </div>        
+<main class="flex flex-col flex-wrap gap-10 container mx-auto text-md text-black ">
+    <div class="container mx-auto border border-zinc-900 bg-orange-50/90 ">
+        <header class="capitalize text-sm py-2 px-8 ">           
+            <div class="font-bold ">{{$session->movie->title}}</div>
+            <div class="my-2 "> начало сеанса {{\Carbon\Carbon::parse($session->start_time)->format('H:i')}}</div>
+            <div class="font-bold  "> Зал {{$session->room->id}}</div>
+        </header> 
+        <section class="grid bg-black mx-auto justify-center py-3 ">
+                <div class=" pb-4 h-1.5 mb-2 text-right text-sm uppercase  bg-no-repeat bg-center bg-[url('../../public/screen.png')] bg-contain">Экран</div>     
+                <div class="grid  place-content-center mx-auto ">          
+                     <table class="table-auto">
+                            <tbody class=" ">   
+                                @php $nubmerSeats=0; @endphp
+                                @for ($i = 1; $i<=$session->room->rows; $i+=1)
+                                    <tr> 
+                                        @for ($j = 1; $j<=$session->room->columns; $j+=1)
+                                            <td>
+                                                @if ($tickets[$nubmerSeats]->is_blocked)
+                                                    <p class="inline-block text-white size-5 rounded bg-black  mr-1 mb-1"><span></span></p>
+                                                    @php $nubmerSeats++; @endphp
+                                                @elseif (($tickets[$nubmerSeats]->is_purchased))
+                                                <p class="inline-block text-white size-5 rounded bg-black border border-gray-400 mr-1 mb-1"><span></span></p>
+                                                </a>
+                                                @php $nubmerSeats++; @endphp
+                                                @elseif ($tickets[$nubmerSeats]->is_selected)
+                                                <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-teal-400 border border-gray-400 mr-1 mb-1"><span ></span>
+                                                </a>
+                                                @php $nubmerSeats++; @endphp
+                                                @elseif ($tickets[$nubmerSeats]->is_vip)
+                                                    <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-orange-400 border border-gray-400 mr-1 mb-1"><span ></span>
+                                                    </a>
+                                                    @php $nubmerSeats++; @endphp
+                                                
+                                                @else
+                                                    <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"   class="inline-block text-black size-5 rounded bg-zinc-50 border border-gray-400 rounded mr-1 mb-1"><span ></span>
+                                                    @php $nubmerSeats++; @endphp
+                                                @endif
+                                            </td>   
+                                        @endfor
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>    
+                </div> 
+                <div class="grid gap-2 grid-cols-2 justify-items-start pl-8   ">
+                        <div > 
+                            <span class="inline-block text-white size-5 rounded bg-zinc-50 border border-gray-400"></span> 
+                            <span class="text-white capitalize  m-1">свободно </span>
+                            <span class="text-white  capitalize ">({{$regular_price}}руб) </span>
                         </div>
-                    </div>       
-                    <div class="flex flex-two justify-center py-4 ">           
-                        <button type="reset"for="config_room_form" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">
-                        отмена   
-                        </button>
-                        
-                        <button type="submit" >
-                        <a  href="{{route('rooms_list')}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">далее</a>
-                        </button>   
-                    </div>
+                        <div> 
+                            <span class="inline-block text-white size-5 rounded bg-black border border-gray-400"></span>  
+                            <span class="text-white capitalize mx-1">занято </span>
+                        </div>
+                        <div> 
+                            <span class=" inline-block text-white size-5 rounded bg-orange-400 border border-gray-400"></span> 
+                            <span class="text-white capitalize mx-1">свободно VIP </span>
+                            <span class="text-white  capitalize ">({{$vip_price}}руб) </span> 
+                        </div>
+                        <div> 
+                            <span class=" inline-block text-white size-5 rounded bg-teal-400 border border-gray-400"></span>  
+                            <span class="text-white capitalize mx-1">выбрано </span>
+                        </div>
+                </div>  
+        </section>  
+        <div class="flex flex-two justify-center py-4 ">           
+            <a  href="{{route('client_ticket_create', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a>
+        </div>   
+    </div>      
 </main>
 @include('partials.footer')
 @endsection

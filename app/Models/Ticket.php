@@ -12,13 +12,19 @@ class Ticket extends Model
     use HasFactory;
     protected $fillable = [
         'seans_id',
+        'seat_id',
+        'price',
+        'is_selected',
+        'is_purchased',
+        'is_vip',
+        'is_blocked',
     ];
     public function seans(): BelongsTo
     {
         return $this->belongsTo(Seans::class);
     }
-    public function seats(): HasMany
-    {
-        return $this->hasMany(Seat::class);
-    }
+    // public function seats(): HasMany
+    // {
+    //     return $this->hasMany(Seat::class);
+    // }
 }

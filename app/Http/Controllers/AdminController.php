@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Seans;
+use App\Models\Ticket;
 use App\Models\Seat;
 use Illuminate\Support\Facades\DB;
 use App\Models\Room;
@@ -64,10 +65,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-
         $movie = new Movie();
         $movie ->fill([
-            'title' =>Str::random(10),
+            'title' =>'Movie '. mt_rand(1,100),
             'duration' => 90,
             'country' => Str::random(10),
             'director' => Str::random(10),
@@ -88,19 +88,10 @@ class AdminController extends Controller
     {
         $rooms = DB::table('rooms')->get();
         $seats = $room->seats;
-        //  dd($rooms);
-        return view('admin.room_config', ['rooms' => $rooms, 'seats' => $seats, 'currentRoom' => $room]);
+        $nubmerSeats=0;
+        return view('admin.room_config', ['currentRoom' => $room,'rooms' => $rooms, 'seats' => $seats] );
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Room $room)
-    {
-        $seats = $room->seats()
-        ->where('room_id', $room->id )->get();
-        //  dd($seats);
-        return view('admin.room_config', ['room' => $room, 'seats' => $seats]);
-    }
+
      /**
      * Show the form for editing the specified resource.
      */
@@ -155,6 +146,7 @@ class AdminController extends Controller
         }else {
             $seat->update(
                 [
+                    'is_vip' => false,
                     'is_blocked' => true,
                 ]);
         }
@@ -166,10 +158,8 @@ class AdminController extends Controller
     {
         $rooms = DB::table('rooms')->get();
         $seats = $room->seats()->get();
-        $casualSeats = $seats->where('is_vip',false)->all();
-        $vipSeats = $seats->where('is_vip',true)->all();
-        // $currentRoom =  $room;
-        // dd($casualSeats[3]->price);
+        $casualSeat = $seats->where('is_vip',false)->first();
+        $vipSeat = $seats->where('is_vip',true)->first();
         return view('admin.room_prices_config', ['rooms' => $rooms, 'seats' => $seats, 'currentRoom' => $room]);
     }
  /**
@@ -186,7 +176,7 @@ class AdminController extends Controller
         foreach ($vipSeats as $vipSeat) {
             $vipSeat->update(['price' => $request->input('vip_seat_price')]);
         }
-        dd( $casualSeats);
+
         return back()->withInput();
     }
     public function indexSessions()
@@ -203,7 +193,7 @@ class AdminController extends Controller
     public function storeSession(Request $request, $movie_id)
     {
         $movie = Movie::findOrFail($movie_id);
-        // dd(Carbon::parse($request->input('start'))->addMinutes($movie->duration)->format('H:i:s'));
+        $room = Room::findOrFail($request->input('room_id'));
         $seans = new Seans();
         $seans ->fill([
             'room_id' =>$request->input('room_id'),
@@ -216,18 +206,23 @@ class AdminController extends Controller
             'updated_at' => Carbon::now(),
         ]);
         $seans->save();
-        $seanses = DB::table('seans')->get();
-       
+        
+        foreach ($seans->room->seats as $seat){
+                $ticket = new Ticket();
+                $ticket->fill([
+                'seans_id' => $seans->id,
+                'seat_id' => $seat->id,
+                'price' =>$seat->price,
+                'is_vip'=> $seat->is_vip,
+                'is_blocked'=> $seat->is_blocked,
+                'is_selected'=> false,
+                'is_purchased'=> false,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]); 
+            $ticket->save();
+        }
         return redirect(route('sessions_list'));
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Room $room)
-    {
-        //
     }
 
     /**

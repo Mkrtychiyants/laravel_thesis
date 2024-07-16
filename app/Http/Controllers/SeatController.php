@@ -17,14 +17,7 @@ class SeatController extends Controller
     {
         $seats = DB::table('seats')->get()->all();
         $seats = DB::select('select * from seats');
-        // $sessions = Room::find(1)->seans()
-        //                  ->where('room_id', 1)
-        //                  ->get();
-        // $sessions = Room::find(1)->seans()
-        // ->where('room_id', 1)
-        // ->get();
-        // $session = Ticket::find(1)->seans;
-         dd($seats);
+
         return view('seats', ['seats' => $seats]);
     }
 
@@ -68,24 +61,5 @@ class SeatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Seat $seat)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Seat $seat)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Seat $seat)
-    {
-        //
-    }
 }

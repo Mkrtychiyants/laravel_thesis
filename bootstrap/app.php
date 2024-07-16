@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // $middleware->append(SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class);
+        // $middleware->alias([
+        //    'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

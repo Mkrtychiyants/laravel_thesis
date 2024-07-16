@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seans;
+use App\Models\Seat;
+use App\Models\Ticket;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +24,8 @@ class SeansController extends Controller
         
         
         $today = Carbon::create($date)->locale('ru_RU')->format('Y-m-d');
-        // $seansesToday = DB::table('seans')->orderBy('start', 'asc')->where('session_date', '=', $today)->get();
         $seansesToday = DB::table('seans')->orderBy('start', 'asc')->get();
 
-        //  dd($seansesToday);
-        // dd( Carbon::parse($date)->format('Y-m-d')===Carbon::parse($seanses[3]->start)->format('Y-m-d'));
         return view('client.layout.welcome', ['movies' => $movies, 'seanses' => $seansesToday , 'rooms' => $rooms,'today'=>Carbon::create($date)->locale('ru_RU')]);
     }
 
@@ -63,31 +62,22 @@ class SeansController extends Controller
      */
     public function show(Seans $seans)
     {
-        //  dd($seans->room->seats);
-        return view('client.session_profile', ['session' => $seans]);
+       
+        $vip_seat_price = $seans->room->seats()->where('is_vip','=', true)->firstOrFail()->price;
+        $regular_seat_price = $seans->room->seats()->where('is_vip','=', false)->first()->price;
+
+        $tickets = $seans->tickets()->get();  
+   
+        return view('client.session_profile', ['session' => $seans,'vip_price' => $vip_seat_price,'regular_price' => $regular_seat_price, 'tickets'=> $tickets]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Seans $seans)
+    
+    public function update(Seat $seat)
     {
-        //
+        $seat->is_selected ?  $seat->update(['is_selected' => false]) :  $seat->update(['is_selected' => true]);
+    
+        return back()->withInput();
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Seans $seans)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Seans $seans)
-    {
-        //
-    }
 }

@@ -17,15 +17,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        // $sessions = Room::find(1)->seans()
-        // ->where('movie_id', 1)
-        // ->get();
-        // $movie = Seans::find(1)->movie;
-        //  dd($movie);
+
         $movies = DB::select('select * from movies');
         $seanses = DB::table('seans')->orderBy('start', 'asc')->get();
         $rooms = DB::select('select * from rooms');
-        // dd($rooms);
+ 
         return view('movies', ['movies' => $movies, 'seanses' => $seanses, 'rooms' => $rooms]);
     }
 
@@ -61,31 +57,8 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-         // dd($movie)->down();
          return view('movie_profile', ['movie' => $movie]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Movie $movie)
-    {
-        //
-    }
+    
 }

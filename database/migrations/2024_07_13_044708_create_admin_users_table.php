@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seans', function (Blueprint $table) {
+        Schema::create('admin_users', function (Blueprint $table) {
             $table->id();
-            $table->integer('room_id')->default(1);
-            $table->integer('movie_id')->default(1);
-            $table->dateTime('session_datetime');
-            $table->date('session_date');
-            $table->time('start_time');
-            $table->time('finish_time');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
-  
+     
     }
 
     /**
@@ -29,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seans');
+        Schema::dropIfExists('admin_users');
+
     }
 };

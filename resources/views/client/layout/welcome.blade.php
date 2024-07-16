@@ -4,7 +4,7 @@
 @include('client.partials.header')
 <main class="flex  flex-col flex-wrap gap-10 container mx-auto   text-md text-black ">
         <section class="flex  flex-row justify-between content-center items-center  gap-1">
-                <a  href="{{ route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow'))}}" class="p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{ route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow'))}}" class="p-3 flex-2 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="">         
                         Сегодня
                     </p>
@@ -12,33 +12,33 @@
                       {{\Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(1)) }}" class="p-3 bg-amber-200/90 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(1)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(1)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(2)) }}" class="p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(2)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(2)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(3))  }}" class="p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(3))  }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(3)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(4)) }}" class="p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm " >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(4)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm " >
 
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(4)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(5)) }}" class="p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(5)) }}" class="p-3  flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(5)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(6)) }}" class="flex flex-column justify-center items-center p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 " >
+                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(6)) }}" class="flex flex-1 flex-column justify-center items-center p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 " >
                     <p class="  ">         
                     <i class=" fa-solid fa-chevron-right"></i>
                     </p>
