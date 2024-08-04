@@ -4,41 +4,41 @@
 @include('client.partials.header')
 <main class="flex  flex-col flex-wrap gap-10 container mx-auto   text-md text-black ">
         <section class="flex  flex-row justify-between content-center items-center  gap-1">
-                <a  href="{{ route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow'))}}" class="p-3 flex-2 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{ route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d'))}}" class=" hover:flex-2 flex-1  p-3  bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm">
                     <p class="">         
-                        Сегодня
+                    Сегодня
                     </p>
                     <p class="capitalize  ">         
-                      {{\Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->isoFormat('dd, D')}}
+                        {{\Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(1)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(1)->locale('ru_RU')->format('Y-m-d')) }}" id="{{\Carbon\Carbon::now('Europe/Moscow')->addDay(1)->locale('ru_RU')->format('Y-m-d')}}" class="target:shadow-lg p-3   flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(1)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(2)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(2)->locale('ru_RU')->format('Y-m-d')) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(2)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(3))  }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(3)->locale('ru_RU')->format('Y-m-d'))  }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(3)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(4)) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm " >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(4)->locale('ru_RU')->format('Y-m-d')) }}"  class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
 
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(4)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(5)) }}" class="p-3  flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(5)->locale('ru_RU')->format('Y-m-d')) }}" class="p-3 flex-1 bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm" >
                     <p class="capitalize  ">         
                      {{ \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->addDay(5)->isoFormat('dd, D')}}
                     </p>
                 </a>
-                <a  href="{{route('client_sessions_list', \Carbon\Carbon::now('Europe/Moscow')->addDay(6)) }}" class="flex flex-1 flex-column justify-center items-center p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 " >
+                <a  href="{{route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->addDay(6)->locale('ru_RU')->format('Y-m-d')) }}" class="flex flex-1 flex-column justify-center items-center p-3 bg-amber-200/90 min-w-28 w-1/5 h-16 " >
                     <p class="  ">         
                     <i class=" fa-solid fa-chevron-right"></i>
                     </p>
@@ -62,8 +62,7 @@
                                                         @foreach ($seanses as $seans)
                                                                         @if ($seans->room_id === $room->id)
                                                                                 @if ($seans->movie_id === $movie->id)
-                                                                                {{-- <a href="{{route('client_session_show', $seans->session_datetime, $seans)}}" class="uppercase font-bold">--}}
-                                                                                <a href="{{route('client_session_show', $seans->id)}}" class="uppercase font-bold">
+                                                                                <a href="{{route('clientSessionShow', $seans->id)}}" class="uppercase font-bold">
                                                                                     <div class="gap-1 bg-amber-50 h-10 border border-zinc-900 w-16 text-base text-center pt-[6px] px-1 rounded-sm">
                                                                                         {{\Carbon\Carbon::parse($seans->session_datetime)->format('H:i')}}
                                                                                     </div>

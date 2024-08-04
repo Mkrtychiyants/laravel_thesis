@@ -1,25 +1,30 @@
-<header class="flex items-center gap-2 py-5">
+<header class="flex items-center justify-end gap-2 py-5 ml-32">
     <div class="flex flex-col text-white items-center ">
         <div class="text-3xl uppercase tracking-tighter">
             <b>идём</b><span class="font-thin">в</span><b>кино</b>
         </div>
     </div>
-    <nav class="-mx-3 flex flex-1 font-semibold justify-end">
+    <nav class="-mx-3 flex flex-1 font-semibold justify-end mr-16">
                                 @guest("web")
-                                <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-xs uppercase  text-white  ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    <a
+                                        href="{{ route("adminLogin")}}"
+                                        class="rounded-md py-2 text-base lowercase  text-white  ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
-                                        Залогиниться
+                                    авторизоваться как админ
                                     </a>
-                                   
+                                    <a
+                                        href="{{ route('clientRegister') }}"
+                                        class="rounded-md ml-4 py-2 text-base lowercase  text-white  ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Зарегистрироваться
+                                    </a>
                                 @endguest
                                 @auth("web")
                                     <a
-                                        href="{{ route('logout') }}"
-                                        class="rounded-md px-3 py-2 text-xs uppercase  text-white  ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        href="{{ route('clientLogout') }}"
+                                        class="rounded-md px-3 py-2 text-base lowercase text-white  ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
-                                        Разлогиниться
+                                        выйти
                                     </a>
 
                                 @endauth

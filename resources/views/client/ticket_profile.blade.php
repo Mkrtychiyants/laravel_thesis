@@ -10,7 +10,7 @@
         <div class="font-bold w-full h-2 absolute left-[0px] bottom-[-14px]  bg-[url('../../public/border-top.png')]  bg-repeat-x "></div>   
     </header> 
     
-    <div class="container mx-auto border border-zinc-900 bg-orange-50/90 ">
+    <div class="container mx-auto  bg-orange-50/90 ">
         <section class=" text-sm py-2 px-4 ">           
             <div class="font-bold "><span class="font-normal ">На фильм: </span>{{$session->movie->title}}</div>
             <div class="font-bold "><span class="font-normal ">Места:
@@ -21,10 +21,10 @@
             </div>  
             <div class="font-bold "><span class="font-normal ">В зале: </span>{{$session->room_id}}</div>
             <div class="font-bold "><span class="font-normal ">Начало сеанса: </span>{{\Carbon\Carbon::parse($session->start_time)->format('H:i')}}</div>
-            <div class="font-bold "><span class="font-normal ">Стоимость : </span>{{$total_price}}</div>
+            <div class="font-bold "><span class="font-normal ">Стоимость : </span>{{$totalPrice}}</div>
         </section>  
         <section class="flex flex-two justify-center py-2 ">           
-            <a  href="{{route('client_ticket_qr', $session)}}" class="uppercase my-1 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Получить код бронирования</a>
+            <a  href="{{route('clientTicketQr', $session)}}" class="uppercase my-1 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Получить код бронирования</a>
         </section>
         <section class="text-xs py-6 px-4 relative">
             <span>После оплаты билет будет доступен в этом окне, а также придёт вам на почту. Покажите QR-код нашему контроллёру у входа в зал. Приятного просмотра!</span>

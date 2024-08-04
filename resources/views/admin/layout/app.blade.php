@@ -12,9 +12,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
     </head>
-    <body class="font-sans text-black text-xs bg-[url('../../public/background_5.jpg')] bg-cover"> 
-                <div class="container mx-auto w-full max-w-2xl px-28 lg:max-w-7xl">
-                    @yield('content')
-                </div>
+    <body> 
+        <div class="font-sans text-black text-xs bg-[url('../../public/background_5.jpg')] bg-cover w-full h-screen  px-28">
+            @yield('content')
+        </div>
     </body>
 </html>

@@ -27,16 +27,16 @@
                                                 </a>
                                                 @php $nubmerSeats++; @endphp
                                                 @elseif ($tickets[$nubmerSeats]->is_selected)
-                                                <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-teal-400 border border-gray-400 mr-1 mb-1"><span ></span>
+                                                <a href="{{route('clientSeatSelect', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-teal-400 border border-gray-400 mr-1 mb-1"><span ></span>
                                                 </a>
                                                 @php $nubmerSeats++; @endphp
                                                 @elseif ($tickets[$nubmerSeats]->is_vip)
-                                                    <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-orange-400 border border-gray-400 mr-1 mb-1"><span ></span>
+                                                    <a href="{{route('clientSeatSelect', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-orange-400 border border-gray-400 mr-1 mb-1"><span ></span>
                                                     </a>
                                                     @php $nubmerSeats++; @endphp
                                                 
                                                 @else
-                                                    <a href="{{route('client_seat_select', $tickets[$nubmerSeats]->id)}}"   class="inline-block text-black size-5 rounded bg-zinc-50 border border-gray-400 rounded mr-1 mb-1"><span ></span>
+                                                    <a href="{{route('clientSeatSelect', $tickets[$nubmerSeats]->id)}}"   class="inline-block text-black size-5 rounded bg-zinc-50 border border-gray-400 rounded mr-1 mb-1"><span ></span>
                                                     @php $nubmerSeats++; @endphp
                                                 @endif
                                             </td>   
@@ -50,7 +50,7 @@
                         <div > 
                             <span class="inline-block text-white size-5 rounded bg-zinc-50 border border-gray-400"></span> 
                             <span class="text-white capitalize  m-1">свободно </span>
-                            <span class="text-white  capitalize ">({{$regular_price}}руб) </span>
+                            <span class="text-white  capitalize ">({{$regularPrice}}руб) </span>
                         </div>
                         <div> 
                             <span class="inline-block text-white size-5 rounded bg-black border border-gray-400"></span>  
@@ -59,7 +59,7 @@
                         <div> 
                             <span class=" inline-block text-white size-5 rounded bg-orange-400 border border-gray-400"></span> 
                             <span class="text-white capitalize mx-1">свободно VIP </span>
-                            <span class="text-white  capitalize ">({{$vip_price}}руб) </span> 
+                            <span class="text-white  capitalize ">({{$vipPrice}}руб) </span> 
                         </div>
                         <div> 
                             <span class=" inline-block text-white size-5 rounded bg-teal-400 border border-gray-400"></span>  
@@ -68,7 +68,7 @@
                 </div>  
         </section>  
         <div class="flex flex-two justify-center py-4 ">           
-            <a  href="{{route('client_ticket_create', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a>
+            <a  href="{{route('clientTicketCreate', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a>
         </div>   
     </div>      
 </main>

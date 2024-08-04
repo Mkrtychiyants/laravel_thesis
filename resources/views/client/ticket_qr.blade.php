@@ -10,7 +10,7 @@
         <div class="font-bold w-full h-2 absolute left-[0px] bottom-[-14px]  bg-[url('../../public/border-top.png')]  bg-repeat-x "></div>   
     </header> 
     
-    <div class="container mx-auto border border-zinc-900 bg-orange-50/90 ">
+    <div class="container mx-auto  bg-orange-50/90 ">
         <section class=" text-sm py-2 px-4 ">           
             <div class="font-bold "><span class="font-normal ">На фильм: </span>{{$seans->movie->title}}</div>
             {{--  <div class="font-bold "><span class="font-normal ">Места:

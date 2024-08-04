@@ -77,10 +77,6 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        // $seats = $room->seats()
-        // ->where('room_id',$room->id )
-        //             ->first();;
-        //  dd($seats);
         return view('room_profile', ['room' => $room]);
     }
 

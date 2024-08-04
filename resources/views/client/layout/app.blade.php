@@ -12,11 +12,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://kit.fontawesome.com/78f0e13aaa.js" crossorigin="anonymous"></script>   
     </head>
-    <body class="font-sans text-black  text-xs"> 
-        <div class="bg-gray-50 text-black/50  bg-[url('../../public/background_6.jpg')] bg-cover ">
-
-                <div class="container mx-auto w-full  px-28">
-                    
+    <body> 
+        <div class=" font-sans text-black  text-xs text-black/50  bg-[url('../../public/background_6.jpg')] bg-cover  h-screen">
+                <div class="container mx-auto px-28">
                     @yield('content')
                 </div>
          </div>

@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->integer('room_id')->default(1);
-            $table->integer('ticket_id')->nullable();
+            $table->unsignedBigInteger('room_id')->default(1);
             $table->integer('row')->default(1);
             $table->integer('price')->default(100);
             $table->boolean('is_vip')->default(false)->nullable();
-            $table->boolean('is_blocked')->default(false)->nullable();
-            $table->boolean('is_selected')->default(false)->nullable();
-            $table->boolean('is_purchased')->default(false)->nullable();
+            $table->boolean('is_blocked')->default(false)->nullable(); 
             $table->timestamps();
+    
+
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade'); 
+
         });
     
     }

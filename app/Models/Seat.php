@@ -10,18 +10,15 @@ class Seat extends Model
     use HasFactory;
     protected $fillable = [
         'room_id',
-        'ticket_id',
         'row',
         'price',
         'is_vip',
         'is_blocked',
-        'is_selected',
-        'is_purchased',
     ];
-    public function ticket(): BelongsTo
-    {
-        return $this->belongsTo(Ticket::class);
-    }
+    // public function ticket(): BelongsTo
+    // {
+    //     return $this->belongsTo(Ticket::class);
+    // }
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);

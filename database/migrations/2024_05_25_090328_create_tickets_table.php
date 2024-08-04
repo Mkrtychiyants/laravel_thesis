@@ -21,6 +21,9 @@ return new class extends Migration
             $table->boolean('is_selected')->default(false);
             $table->integer('is_purchased')->default(false);
             $table->timestamps();
+
+            $table->foreign('seans_id')->references('id')->on('seans');
+            // $table->foreign('seat_id')->references('id')->on('seats');
         });
     }
 

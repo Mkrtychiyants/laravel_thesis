@@ -12,7 +12,6 @@ class Ticket extends Model
     use HasFactory;
     protected $fillable = [
         'seans_id',
-        'seat_id',
         'price',
         'is_selected',
         'is_purchased',
