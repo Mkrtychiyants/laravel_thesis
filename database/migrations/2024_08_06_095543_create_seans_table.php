@@ -20,11 +20,9 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('finish_time');
             $table->timestamps();
-
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->foreign('movie_id')->references('id')->on('movies');
         });
-  
     }
 
     /**

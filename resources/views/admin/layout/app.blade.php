@@ -13,7 +13,7 @@
         
     </head>
     <body> 
-        <div class="font-sans text-black text-xs bg-[url('../../public/background_5.jpg')] bg-cover w-full h-screen  px-28">
+        <div class="h-screen font-sans  flex flex-col justify-between text-black text-xs bg-[url('../../public/background_5.jpg')] bg-cover w-full  px-28">
             @yield('content')
         </div>
     </body>

@@ -21,12 +21,14 @@ class LoginController extends Controller
     public function login(AdminLoginRequest $request): RedirectResponse
     {
     
+        $adm = DB::table('admin_users')->get();
+        // dd($adm);
         $credentials = $request->validated();
       
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect(url("/admin/welcome"));
+            return redirect(route("welcome"));
         }
  
         return back()->withErrors([
@@ -44,7 +46,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(url("/admin/login"));
+        return redirect(route('clientLogin'));
     }
   
 }

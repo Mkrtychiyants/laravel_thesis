@@ -34,11 +34,13 @@ class SeansController extends Controller
     
     public function show(Seans $seans)
     {
-       
+        // dd($seans);
         $vipSeatPrice = $seans->room->seats()->where('is_vip','=', true)->firstOrFail()->price;
         $regularSeatPrice = $seans->room->seats()->where('is_vip','=', false)->first()->price;
 
         $tickets = $seans->tickets()->get();  
+        $seats = $seans->room->seats()->get(); 
+        // dd($tickets);
 
         return view('client.session_profile', ['session' => $seans,'vipPrice' => $vipSeatPrice,'regularPrice' => $regularSeatPrice, 'tickets'=> $tickets]);
     }

@@ -2,7 +2,7 @@
 @section('title','Создать сеанс')
 @section('content')
 @include('admin.partials.header')
-<main class="container mx-auto bg-gray-300">
+<main class="container mx-auto bg-gray-300  w-9/12">
         <section class="container mx-auto">
             <a  href="{{url ('/admin/welcome')}}" class="flex w-full flex-col relative items-start">
                 <header class="w-full flex content-center  flex-wrap bg-fuchsia-900  indent-24 z-5  py-8 text-xl  text-white font-bold uppercase tracking-tighter transition-all ease-in  hover:tracking-wide hover:bg-fuchsia-400  delay-300  duration-200">         
@@ -26,7 +26,7 @@
                             <input class=" border border-stone-300 rounded-sm  w-20 inline-block border-2 border-stone-300 px-2 py-1 my-1 mr-1" name="start" id="start" type="datetime-local" ><br>
                             
 
-                            <div class="flex  flex-two container mx-auto justify-center ">  
+                            <div class="flex  flex-two container mx-auto  justify-center ">  
                                     <button type="reset" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400 hover:bg-teal-300 transition-all ease-in  delay-300  duration-200">
                                         отмена   
                                     </button>
@@ -35,7 +35,7 @@
                                     </button>
                             </div> 
                     </form>
-                <div class="absolute h-full bg-purple-400 font-black text-2xl z-20 w-1 top-0 left-[57px]" ></div>   
+                <div class="absolute  bg-purple-400 font-black text-2xl z-20 w-1 top-0 left-[57px]" ></div>   
             </div>
         </section>
 </main>

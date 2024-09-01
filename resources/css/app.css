@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-      @apply bg-orange-300;
+      /* @apply h-screen; */
       /* @apply bg-[url('../../public/background_3.jpg')]; */
     }
     img {
@@ -12,9 +12,3 @@
     }
   }
 
-  /* .background {
-    src: url('../../public/background_3.jpg');
-} */
-/* img {
-    display: inline-block;
-}  */

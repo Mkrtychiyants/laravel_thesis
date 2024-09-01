@@ -11,14 +11,14 @@ class Seat extends Model
     protected $fillable = [
         'room_id',
         'row',
-        'price',
+        'price', 
         'is_vip',
         'is_blocked',
     ];
-    // public function ticket(): BelongsTo
-    // {
-    //     return $this->belongsTo(Ticket::class);
-    // }
+    public function ticket(): HasOne
+    {
+        return $this->hasOne(Ticket::class);
+    }
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);

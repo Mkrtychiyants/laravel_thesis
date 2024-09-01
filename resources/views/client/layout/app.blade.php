@@ -13,8 +13,8 @@
         <script src="https://kit.fontawesome.com/78f0e13aaa.js" crossorigin="anonymous"></script>   
     </head>
     <body> 
-        <div class=" font-sans text-black  text-xs text-black/50  bg-[url('../../public/background_6.jpg')] bg-cover  h-screen">
-                <div class="container mx-auto px-28">
+        <div class=" font-sans text-black  text-xs text-black/50  bg-[url('../../public/background_6.jpg')] bg-cover ">
+                <div class="container mx-auto flex flex-col justify-between ">
                     @yield('content')
                 </div>
          </div>

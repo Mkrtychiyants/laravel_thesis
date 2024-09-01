@@ -71,7 +71,7 @@
                             @foreach ($rooms as $room)
                                 <div class="rounded-lg px-4 mb-7">
                                         <div class="font-bold uppercase" >Зал {{ $room->id }}</div>  
-                                        <div class="flex flex-row items-center flex-wrap gap-1 rounded-sm  border border-zinc-900 relative w-full">    
+                                        <div class="flex flex-row items-center flex-wrap gap-1 rounded-sm  border border-zinc-900 relative w-full min-h-4">    
                                                 @for ($i = 8; $i <= 24; $i+=2)
                                                     <div class="min-w-[10%] min-w-24">               
                                                         <span class="block -bottom-5 left-{{$i}} absolute">{{$i}}:00</span>

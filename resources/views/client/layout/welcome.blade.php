@@ -2,7 +2,7 @@
 @section('title','Главная')
 @section('content')
 @include('client.partials.header')
-<main class="flex  flex-col flex-wrap gap-10 container mx-auto   text-md text-black ">
+<main class=" h-screen flex  flex-col flex-wrap gap-10 container mx-auto   text-md text-black ">
         <section class="flex  flex-row justify-between content-center items-center  gap-1">
                 <a  href="{{ route('clientSessionsList', \Carbon\Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d'))}}" class=" hover:flex-2 flex-1  p-3  bg-amber-200/90 min-w-28 w-1/5 h-16 border-1 border-black rounded-sm">
                     <p class="">         

@@ -15,10 +15,7 @@ use App\Http\Requests\ClientLoginRequest;
 
 class LoginController extends Controller
 {
-    public function showWelcomePage()
-    {
-        return redirect(route('clientLogin'));
-    }
+    
     public function showLoginForm()
     {
         return view("client.auth.login");
@@ -27,11 +24,17 @@ class LoginController extends Controller
     {   
        
         $credentials = $request->validated();
-          
+        
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect(route('client_sessions_list', Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d')));
+            return redirect(route('clientSessionsList', Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d')));
+        }
+       
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+            
+            return redirect(url("/admin/welcome"));
         }
  
         return back()->withErrors([

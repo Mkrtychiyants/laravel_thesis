@@ -22,12 +22,7 @@ class RegisterController extends Controller
     public function register(ClientRegisterRequest $request)
     {
         $data = $request->validated();
-        // $data = $request->validate([
-        //     "user_name" => ["required", "string"],
-        //     "user_mail" => ["required", "email", "string", "unique:".User::class],
-        //     "user_password" => ["required"]
-        // ]);
-
+  
         $user = User::create([
             "name" => $data["user_name"],
             "email" => $data["user_mail"],
@@ -39,6 +34,6 @@ class RegisterController extends Controller
         Auth::login($user);
     
        
-        return redirect(route('client_sessions_list', Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d')));
+        return redirect(route('clientSessionsList', Carbon::now('Europe/Moscow')->locale('ru_RU')->format('Y-m-d')));
     }   
 }

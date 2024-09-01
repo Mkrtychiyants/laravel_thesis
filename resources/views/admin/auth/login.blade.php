@@ -2,7 +2,7 @@
 @section('title','Admin Логин')
 @section('content')
 @include('admin.partials.header')
-<main class="w-2/5 mx-auto text-md text-black mt-8 ">
+<main class="w-2/5 mx-auto text-md text-black mt-8 h-screen">
         <section >
             <header class="flex items-center justify-items-center justify-center bg-fuchsia-900 h-10 indent-24 z-5  py-8 text-xl  text-white font-bold uppercase tracking-tighter transition-all ease-in  hover:tracking-wide hover:bg-fuchsia-400  delay-300  duration-200">         
                 <div class="mr-24">авторизация</div>

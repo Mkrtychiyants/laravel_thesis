@@ -22,11 +22,7 @@ class RegisterController extends Controller
     }
     public function register(AdminRegisterRequest $request)
     {
-        // $data = $request->validate([
-        //     "admin_name" => ["required", "string"],
-        //     "admin_mail" => ["required", "email", "string", "unique:".AdminUser::class],
-        //     "admin_password" => ["required"]
-        // ]);
+
         $data = $request->validated();
         $admin = AdminUser::create([
             "name" => $data["admin_name"],

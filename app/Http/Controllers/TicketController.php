@@ -30,7 +30,7 @@ class TicketController extends Controller
     
            $ticket->update(['is_purchased' => true]);
            $ticket->update(['is_selected' => false]);
-           array_push($totalSeats, $ticket->id);
+           array_push($totalSeats, $ticket->final_seat_number);
            $totalPrice += $ticket->price;
         }
       

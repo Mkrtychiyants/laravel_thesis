@@ -1,7 +1,10 @@
 <header class="flex items-center justify-end gap-2 py-5 ml-40">
                         <div class="flex flex-col text-white items-center ">
                             <div class="text-3xl uppercase tracking-tighter">
-                                <b>идём</b><span class="font-thin">в</span><b>кино</b>
+                                <a href="{{ route("welcome")}}" 
+                                >
+                                    <b>идём</b><span class="font-thin">в</span><b>кино</b>
+                                </a>
                             </div>
                             <div class="text-xs uppercase tracking-widest">
                                 администраторская

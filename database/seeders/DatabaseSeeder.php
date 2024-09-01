@@ -10,6 +10,7 @@ use App\Models\Seans;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Room::factory()->count(1)->create();
+        // $rooms =  Room::factory()->count(1)->make();
         // Room::factory()->has(Seans::factory()->count(3))->count(1)->create();
 
         // DB::table('rooms')->insert([
@@ -59,8 +60,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         DB::table('admin_users')->insert([
            "name" => "Admin",
-            "email" => "    ",
-            "password" => "12345",
+            "email" => "heisaloosershesad@gmail.com",
+            "password" =>  Hash::make("12345"),
         ]);
     }
 }

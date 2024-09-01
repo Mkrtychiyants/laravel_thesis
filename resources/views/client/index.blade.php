@@ -2,7 +2,7 @@
 @section('title','Главная')
 @section('content')
 @include('client.partials.header')
-<main class="grid grid-cols-1 gap-0 auto-rows-max  justify-start text-md text-black bg-[url('../../public/background_6.jpg')] ">
+<main class="h-screen grid grid-cols-1 gap-0 auto-rows-max  justify-start text-md text-black bg-[url('../../public/background_6.jpg')] ">
          <section class="grid grid-cols-1 gap-0 auto-rows-max  justify-start text-md text-black">
                 <a  href="{{route('rooms_list')}}" class="flex w-full flex-col relative items-start" >
                     <div class="w-full flex content-center   flex-wrap bg-purple-700  indent-24 z-5  py-8 text-xl  text-white font-bold uppercase tracking-tighter">         

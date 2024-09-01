@@ -2,7 +2,7 @@
 @section('title','Главная')
 @section('content')
 @include('client.partials.header')
-<main class="flex flex-col flex-wrap gap-10 container mx-auto text-md text-black ">
+<main class="h-screen flex flex-col flex-wrap gap-10 container mx-auto text-md text-black ">
     <div class="container mx-auto border border-zinc-900 bg-orange-50/90 ">
         <header class="capitalize text-sm py-2 px-8 ">           
             <div class="font-bold ">{{$session->movie->title}}</div>
@@ -24,7 +24,6 @@
                                                     @php $nubmerSeats++; @endphp
                                                 @elseif (($tickets[$nubmerSeats]->is_purchased))
                                                 <p class="inline-block text-white size-5 rounded bg-black border border-gray-400 mr-1 mb-1"><span></span></p>
-                                                </a>
                                                 @php $nubmerSeats++; @endphp
                                                 @elseif ($tickets[$nubmerSeats]->is_selected)
                                                 <a href="{{route('clientSeatSelect', $tickets[$nubmerSeats]->id)}}"  class="inline-block text-white size-5 rounded bg-teal-400 border border-gray-400 mr-1 mb-1"><span ></span>
@@ -68,7 +67,8 @@
                 </div>  
         </section>  
         <div class="flex flex-two justify-center py-4 ">           
-            <a  href="{{route('clientTicketCreate', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a>
+            <!-- <a  href="{{route('sessions.final_tickets.create', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a> -->
+            <a  href="{{route('clientGetFinalTicket', $session)}}" class="uppercase my-4 mx-2 rounded-md px-8 py-2 text-white font-bold text-sm  bg-teal-400">Забронировать</a>
         </div>   
     </div>      
 </main>

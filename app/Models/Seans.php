@@ -31,4 +31,8 @@ class Seans extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+    public function final_tickets(): HasMany
+    {
+        return $this->hasMany(FinalTicket::class);
+    }
 }

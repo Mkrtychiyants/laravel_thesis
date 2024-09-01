@@ -60,6 +60,7 @@ class AdminController extends Controller
         $rooms = DB::table('rooms')->get();
         $seats = $room->seats;
         $nubmerSeats=0;
+        // dd( $seats);
         return view('admin.room_config', ['currentRoom' => $room,'rooms' => $rooms, 'seats' => $seats] );
     }
 

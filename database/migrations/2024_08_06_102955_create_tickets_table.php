@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->integer('seans_id')->default(1);
             $table->integer('seat_id')->default(1);
+            $table->integer('final_seat_number')->default(1)->nullable();
             $table->integer('price')->default(100);
             $table->integer('is_vip')->default(false);
             $table->integer('is_blocked')->default(false);
             $table->boolean('is_selected')->default(false);
             $table->integer('is_purchased')->default(false);
             $table->timestamps();
-
             $table->foreign('seans_id')->references('id')->on('seans');
-            // $table->foreign('seat_id')->references('id')->on('seats');
+            $table->foreign('seat_id')->references('id')->on('seats');
         });
     }
 

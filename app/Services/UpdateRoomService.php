@@ -16,7 +16,8 @@ class UpdateRoomService
     public function updateRoom(array $roomData, Room $room):Room
     {
         $room->update(['rows' => $roomData["room_row"], 'columns' => $roomData["room_columns"] ]);
-        $seats = $room->seats()->delete();
+        
+        $room->seats()->delete();
         for ($i=1; $i <= $room->rows ; $i++) { 
             for ($j=0; $j < $room->columns ; $j++) {
                 $seat= new Seat();
